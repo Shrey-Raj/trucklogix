@@ -2,7 +2,7 @@
 set -o errexit
 
 pip install --upgrade pip
-pip install --prefer-binary -r requirements.txt  # Now handles model install
+pip install --prefer-binary -r requirements.txt
 
-export BLIS_ARCH="generic"
-export NO_BLAS=1
+# Add if using static files:
+# python manage.py collectstatic --noinput
