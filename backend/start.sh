@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 set -o errexit
 
-# Verify spaCy model
-python -c "import spacy; spacy.load('en_core_web_sm')" || exit 1
-
+# Run database migrations
 python manage.py migrate
-gunicorn brandmonitor.wsgi:application --bind 0.0.0.0:$PORT --timeout 180
+
+# Start Gunicorn
+gunicorn trucklogix.wsgi:application --bind 0.0.0.0:$PORT --timeout 180

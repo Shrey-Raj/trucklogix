@@ -1,0 +1,151 @@
+- .env.local
+- .gitignore
+- .modified
+- apphosting.yaml
+- backend
+  - .env
+  - db.sqlite3
+  - eld_logs
+    - admin.py
+    - apps.py
+    - migrations
+      - 0001_initial.py
+      - __init__.py
+      - __pycache__
+        - 0001_initial.cpython-310.pyc
+        - __init__.cpython-310.pyc
+    - models.py
+    - serializers.py
+    - services.py
+    - urls.py
+    - views.py
+    - __init__.py
+    - __pycache__
+      - admin.cpython-310.pyc
+      - apps.cpython-310.pyc
+      - models.cpython-310.pyc
+      - serializers.cpython-310.pyc
+      - services.cpython-310.pyc
+      - urls.cpython-310.pyc
+      - views.cpython-310.pyc
+      - __init__.cpython-310.pyc
+  - manage.py
+  - README.md
+  - render-build.sh
+  - requirements.txt
+  - routes
+    - admin.py
+    - apps.py
+    - migrations
+      - 0001_initial.py
+      - __init__.py
+      - __pycache__
+        - 0001_initial.cpython-310.pyc
+        - __init__.cpython-310.pyc
+    - models.py
+    - serializers.py
+    - services.py
+    - urls.py
+    - views.py
+    - __init__.py
+    - __pycache__
+      - admin.cpython-310.pyc
+      - apps.cpython-310.pyc
+      - models.cpython-310.pyc
+      - serializers.cpython-310.pyc
+      - services.cpython-310.pyc
+      - urls.cpython-310.pyc
+      - views.cpython-310.pyc
+      - __init__.cpython-310.pyc
+  - start.sh
+  - trucklogix
+    - settings.py
+    - urls.py
+    - wsgi.py
+    - __init__.py
+    - __pycache__
+      - settings.cpython-310.pyc
+      - urls.cpython-310.pyc
+      - wsgi.cpython-310.pyc
+      - __init__.cpython-310.pyc
+  - venv
+  - components.json
+- docs
+  - blueprint.md
+- next-env.d.ts
+- next.config.ts
+- package-lock.json
+- package.json
+- postcss.config.mjs
+- README.md
+- render.yaml
+- resp.js
+- src
+  - ai
+    - dev.ts
+    - flows
+      - eld-log-generation.ts
+      - route-optimization.ts
+    - genkit.ts
+  - app
+    - eld-log
+      - page.tsx
+    - eld-logs-list
+      - page.tsx
+    - favicon.ico
+    - globals.css
+    - layout.tsx
+    - page.tsx
+  - components
+    - app-layout.tsx
+    - eld-log-display.tsx
+    - eld-log-form.tsx
+    - eld-timeline.tsx
+    - map-placeholder.tsx
+    - route-planner.tsx
+    - ui
+      - accordion.tsx
+      - alert-dialog.tsx
+      - alert.tsx
+      - avatar.tsx
+      - badge.tsx
+      - button.tsx
+      - calendar.tsx
+      - card.tsx
+      - carousel.tsx
+      - chart.tsx
+      - checkbox.tsx
+      - collapsible.tsx
+      - dialog.tsx
+      - dropdown-menu.tsx
+      - form.tsx
+      - input.tsx
+      - label.tsx
+      - menubar.tsx
+      - popover.tsx
+      - progress.tsx
+      - radio-group.tsx
+      - scroll-area.tsx
+      - select.tsx
+      - separator.tsx
+      - sheet.tsx
+      - sidebar.tsx
+      - skeleton.tsx
+      - slider.tsx
+      - switch.tsx
+      - table.tsx
+      - tabs.tsx
+      - textarea.tsx
+      - toast.tsx
+      - toaster.tsx
+      - tooltip.tsx
+  - hooks
+    - use-mobile.tsx
+    - use-toast.ts
+  - lib
+    - actions.ts
+    - api.ts
+    - schemas.ts
+    - utils.ts
+- tailwind.config.ts
+- tsconfig.json

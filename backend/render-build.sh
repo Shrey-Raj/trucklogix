@@ -1,8 +1,9 @@
 #!/usr/bin/env bash
 set -o errexit
 
+# Install Python dependencies
 pip install --upgrade pip
-pip install --prefer-binary -r requirements.txt
+pip install -r requirements.txt
 
-# Add if using static files:
+# Uncomment if using static files
 # python manage.py collectstatic --noinput
