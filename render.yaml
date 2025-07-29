@@ -5,14 +5,14 @@ services:
     plan: free
     env: python
     rootDirectory: backend
-    buildCommand: bash .render-build.sh
-    startCommand: bash start.sh
+    buildCommand: "cd backend && bash .render-build.sh"
+    startCommand: "cd backend && bash start.sh"
     healthCheckPath: /healthz
     envVars:
       - key: SECRET_KEY
-        value: your-secret-key-here  # Replace with actual key
+        value: your-secret-key-here 
       - key: DEBUG
-        value: "False"  # Must be False in production
+        value: "False"
       - key: OPENROUTESERVICE_API_KEY
         value: eyJvcmciOiI1YjNjZTM1OTc4NTExMTAwMDFjZjYyNDgiLCJpZCI6IjExNmMwZmM2NjFiMjQzMzU4NWIyZWZiODAwZTAyMzc1IiwiaCI6Im11cm11cjY0In0=
       - key: PORT
