@@ -24,8 +24,11 @@ TruckLogix is designed to streamline the daily operations of truck drivers and f
 
 ## 🎥 Demo & Screenshots
 
-### Route Optimization in Action
-![Route Optimization Demo](https://placehold.co/600x400/F2994A/FFFFFF?text=Route+Optimization+Demo)
+### Application Demo Video
+
+[Watch Loom Video 📺](https://www.loom.com/share/627ba9633cfc4f92945177b160c6c869?sid=2e1a1db9-5175-4626-966c-9b36cdc0bde8)
+
+### Route Optimization
 
 
 <img src="./public/previews/route-optimization1.png" alt="TruckLogix Dashboard" />
