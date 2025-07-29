@@ -36,6 +36,8 @@ const initialState: RouteOptimizationState = {
   error: "",
 };
 
+const RouteMap = dynamic(() => import("./map-placeholder"), { ssr: false });
+
 
 function RouteResults({ data }: { data: OptimizeRouteOutput }) {
   const [mapType, setMapType] = useState<"route" | "fuel" | "rest">("route");
@@ -176,7 +178,7 @@ const restLocations = useMemo(() =>
       </div>
 
       <div className="md:col-span-2">
-        <MapPlaceholder locations={locations} />
+        <RouteMap locations={locations} />
           <Button 
             className="mt-4"
             variant={mapType === "fuel" ? "default" : "outline"}

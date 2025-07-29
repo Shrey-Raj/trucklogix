@@ -11,6 +11,16 @@ import {
   CardContent,
   CardDescription,
 } from "@/components/ui/card";
+import {
+  Dialog,
+  DialogTrigger,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogFooter,
+  DialogDescription,
+} from "@/components/ui/dialog"; 
+
 import { Button } from "@/components/ui/button";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Loader2, Trash2, FileText } from "lucide-react";
@@ -20,6 +30,8 @@ export default function EldLogsListPage() {
   const [selectedLog, setSelectedLog] = useState<EldLogResponse | null>(null);
   const [loading, setLoading] = useState(false);
   const [deletingId, setDeletingId] = useState<number | null>(null);
+  const [confirmDeleteLogId, setConfirmDeleteLogId] = useState<number | null>(null);
+
   const { toast } = useToast();
 
   // Fetch history on mount
@@ -60,7 +72,6 @@ export default function EldLogsListPage() {
   };
 
   const handleDelete = async (id: number) => {
-    if (!window.confirm("Delete this ELD log?")) return;
     setDeletingId(id);
     const res = await deleteEldLog(id);
     if (res.error) {
@@ -119,7 +130,7 @@ export default function EldLogsListPage() {
                         variant="ghost"
                         size="sm"
                         className="text-destructive hover:bg-destructive/10"
-                        onClick={() => handleDelete(log.id)}
+                        onClick={() => setConfirmDeleteLogId(log.id)}
                         disabled={deletingId === log.id}
                       >
                         {deletingId === log.id ? (
@@ -193,6 +204,40 @@ export default function EldLogsListPage() {
           </CardContent>
         </Card>
       </div>
-    </div>
+    {/* Delete confirmation dialog */}
+    <Dialog open={confirmDeleteLogId !== null} onOpenChange={(open) => {
+      if (!open) setConfirmDeleteLogId(null);
+    }}>
+      <DialogContent className="sm:max-w-[425px]">
+        <DialogHeader>
+          <DialogTitle>Confirm Delete</DialogTitle>
+          <DialogDescription>
+            Are you sure you want to delete this ELD log? This action cannot be undone.
+          </DialogDescription>
+        </DialogHeader>
+        <DialogFooter>
+          <Button variant="secondary" onClick={() => setConfirmDeleteLogId(null)}>
+            Cancel
+          </Button>
+          <Button
+            variant="destructive"
+            onClick={async () => {
+              if (confirmDeleteLogId != null) {
+                await handleDelete(confirmDeleteLogId);
+                setConfirmDeleteLogId(null);
+              }
+            }}
+            disabled={deletingId === confirmDeleteLogId}
+          >
+            {deletingId === confirmDeleteLogId ? (
+              <Loader2 className="animate-spin w-4 h-4" />
+            ) : (
+              "Delete"
+            )}
+          </Button>
+        </DialogFooter>
+      </DialogContent>
+    </Dialog>
+  </div>
   );
 }
