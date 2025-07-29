@@ -42,6 +42,7 @@ export async function optimizeRouteAction(
         pickup: result.coordinates.pickup || [0, 0],
         dropoff: result.coordinates.dropoff || [0, 0],
       },
+      directions: result.directions || [],
     };
 
     return { data: transformedResult, error: null };

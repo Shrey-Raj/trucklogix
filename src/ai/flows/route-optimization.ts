@@ -34,6 +34,7 @@ const OptimizeRouteOutputSchema = z.object({
     pickup: z.tuple([z.number(), z.number()]).describe('Coordinates [longitude, latitude] of the pickup location.'),
     dropoff: z.tuple([z.number(), z.number()]).describe('Coordinates [longitude, latitude] of the dropoff location.'),
   }).describe('Geographical coordinates for current, pickup, and dropoff locations.'),
+  directions: z.object({}).describe('List of latitudes and longitudes as per the optimised route.'),
 });
 export type OptimizeRouteOutput = z.infer<typeof OptimizeRouteOutputSchema>;
 

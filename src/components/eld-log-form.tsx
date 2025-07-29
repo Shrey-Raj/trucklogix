@@ -71,6 +71,7 @@ export default function EldLogForm({ onLogGenerated }: EldLogFormProps) {
   const onSubmit = async (values: z.infer<typeof EldLogSchema>) => {
     setIsSubmitting(true);
     const result = await generateEldLogAction(values);
+    console.log("EldLogForm result:", result);
     setIsSubmitting(false);
 
     if (result.error || !result.data) {

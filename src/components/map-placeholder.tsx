@@ -1,16 +1,9 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Map as MapIcon } from "lucide-react";
-import { MapContainer, TileLayer, Marker, Tooltip } from "react-leaflet";
+import { MapContainer, TileLayer, Marker, Tooltip, Polyline } from "react-leaflet";  
 import "leaflet/dist/leaflet.css";
 import L from "leaflet";
 import { useEffect } from "react";
-
-// delete (L.Icon.Default.prototype as any)._getIconUrl;
-// L.Icon.Default.mergeOptions({
-//   iconUrl:    "https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon.png",
-//   iconRetinaUrl: "https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon-2x.png",
-//   shadowUrl:  "https://unpkg.com/leaflet@1.9.4/dist/images/marker-shadow.png",
-// });
 
 interface Location {
   lat: number;
@@ -19,11 +12,11 @@ interface Location {
 }
 
 type RouteMapProps = {
-  locations?: Location[];
+  locations?: Location[];           
+  routeCoordinates?: number[][];
 };
 
-export default function RouteMap({ locations = [] }: RouteMapProps) {
-
+export default function RouteMap({ locations = [], routeCoordinates = [] }: RouteMapProps) {
   useEffect(() => {
     delete (L.Icon.Default.prototype as any)._getIconUrl;
     L.Icon.Default.mergeOptions({
@@ -35,9 +28,13 @@ export default function RouteMap({ locations = [] }: RouteMapProps) {
 
   const bounds = locations.length
     ? L.latLngBounds(locations.map((loc) => [loc.lat, loc.lng]))
-    : undefined;
+    : routeCoordinates.length
+      ? L.latLngBounds(routeCoordinates.map(([lng, lat]) => [lat, lng]))
+      : undefined;
 
-    console.log("RouteMap locations:", locations);
+  const polylinePositions: [number, number][] = routeCoordinates.map(
+    ([lng, lat]) => [lat, lng] as [number, number]
+  );
 
   return (
     <Card className="w-full">
@@ -50,7 +47,13 @@ export default function RouteMap({ locations = [] }: RouteMapProps) {
       <CardContent>
         <div className="w-full aspect-video rounded-lg overflow-hidden bg-muted">
           <MapContainer
-            key={locations.length ? JSON.stringify(locations) : "defaultKey"}
+            key={
+              routeCoordinates.length
+                ? JSON.stringify(routeCoordinates)
+                : locations.length
+                ? JSON.stringify(locations)
+                : "defaultKey"
+            }
             bounds={bounds}
             style={{ width: "100%", height: "100%" }}
             scrollWheelZoom={false}
@@ -60,6 +63,7 @@ export default function RouteMap({ locations = [] }: RouteMapProps) {
               attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
               url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
             />
+            {/* Show pin markers for locations */}
             {locations.map((loc, idx) => (
               <Marker key={idx} position={[loc.lat, loc.lng]}>
                 <Tooltip direction="top" offset={[0, -10]} opacity={1} permanent={false}>
@@ -69,6 +73,11 @@ export default function RouteMap({ locations = [] }: RouteMapProps) {
                 </Tooltip>
               </Marker>
             ))}
+
+            {/* Plot the route as a polyline connecting routeCoordinates */}
+            {polylinePositions.length > 0 && (
+              <Polyline positions={polylinePositions} pathOptions={{ color: "blue", weight: 4 }} />
+            )}
           </MapContainer>
         </div>
       </CardContent>

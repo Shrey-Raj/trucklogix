@@ -25,6 +25,7 @@ export interface RouteOptimizationResponse {
     pickup: [number, number];
     dropoff: [number, number];
   };
+  directions: string[];
 }
 
 export interface DutyStatusChange {

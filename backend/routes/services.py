@@ -48,7 +48,8 @@ class RouteOptimizationService:
             'duration_min': duration_min,
             'fuel_stops': fuel_stops,
             'rest_break_stops': rest_stops,
-            'coordinates': {'current': current_coords, 'pickup': pickup_coords, 'dropoff': dropoff_coords}
+            'coordinates': {'current': current_coords, 'pickup': pickup_coords, 'dropoff': dropoff_coords},
+            'directions': directions
         }
 
     def _geocode(self, location_name: str) -> List[float]:

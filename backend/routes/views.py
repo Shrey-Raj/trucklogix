@@ -80,6 +80,7 @@ def optimize_route(request):
         result_serializer = RouteOptimizationSerializer(route_optimization)
         result_data = result_serializer.data
         result_data['coordinates'] = optimization_result.get('coordinates', [])
+        result_data['directions'] = optimization_result.get('directions', [])
         print(f"Serialized result with coordinates: {result_data}")
         return Response(result_data, status=status.HTTP_201_CREATED)
     

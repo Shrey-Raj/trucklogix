@@ -178,7 +178,13 @@ const restLocations = useMemo(() =>
       </div>
 
       <div className="md:col-span-2">
-        <RouteMap locations={locations} />
+        <RouteMap
+            locations={locations}
+            routeCoordinates={
+              (data.directions as any)?.features?.[0]?.geometry?.coordinates || []
+            }
+          />
+
           <Button 
             className="mt-4"
             variant={mapType === "fuel" ? "default" : "outline"}
@@ -197,8 +203,6 @@ const restLocations = useMemo(() =>
 export default function RoutePlanner() {
   const { toast } = useToast();
   const [state, formAction] = useActionState(optimizeRouteAction, initialState);
-  
-
   const [isLoading, setIsLoading] = useState(false);
 
   const form = useForm<z.infer<typeof RouteSchema>>({
