@@ -68,3 +68,4 @@ backend/venv/
 # VSCode
 .vscode/
 resp.js
+.env
