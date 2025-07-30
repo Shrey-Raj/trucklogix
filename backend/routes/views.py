@@ -116,3 +116,16 @@ def get_route_detail(request, route_id):
             {'error': 'Route not found'},
             status=status.HTTP_404_NOT_FOUND
         )
+        
+@api_view(['GET'])
+def health_check(request):
+    """
+    Health check endpoint to verify the service is running.
+    """
+    try:
+        return Response({'status': 'ok'}, status=status.HTTP_200_OK)
+    except Exception as e:
+        return Response(
+            {'error': f'Health check failed: {str(e)}'},
+            status=status.HTTP_500_INTERNAL_SERVER_ERROR
+        )
