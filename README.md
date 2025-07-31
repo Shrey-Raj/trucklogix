@@ -6,7 +6,7 @@ A comprehensive trucking logistics application that combines intelligent route o
 
 ## 🌟 What TruckLogix Does
 
-TruckLogix is designed to streamline the daily operations of truck drivers and fleet managers by providing two core functionalities:
+TruckLogix is designed to streamline the daily operations of truck drivers and by providing two core functionalities:
 
 ### 1. **Intelligent Route Optimization** 🗺️
 - **Smart Route Planning**: Input your current location, pickup point, and destination to get optimized routes
@@ -180,52 +180,6 @@ TruckLogix integrates with several external services:
 
 - **OpenRouteService**: Real-time routing and geocoding
 - **Google AI**: Intelligent log generation and route optimization
-- **Fuel Price APIs**: Current fuel pricing data
-- **Traffic APIs**: Real-time traffic conditions
 
-<<<<<<< HEAD
-=======
-## 📊 Screenshots
-
-### Dashboard Overview
-![Dashboard](https://placehold.co/800x500/E0F7FA/333333?text=TruckLogix+Dashboard+Overview)
-
-### Route Optimization
-![Route Planning](https://placehold.co/800x500/29ABE2/FFFFFF?text=Route+Optimization+Interface)
-
-### ELD Log Creation
-![ELD Form](https://placehold.co/800x500/F2994A/FFFFFF?text=ELD+Log+Creation+Form)
-
-### Visual Timeline
-![Timeline](https://placehold.co/800x500/E0F7FA/333333?text=Visual+ELD+Timeline)
-
-### Log Management
-![Log History](https://placehold.co/800x500/29ABE2/FFFFFF?text=ELD+Log+History+Management)
->>>>>>> fee92bafa415776d9bf9b39f7a5c5cd243cf8677
-
-## 🤝 Contributing
-
-We welcome contributions to TruckLogix! Please read our contributing guidelines and submit pull requests for any improvements.
-
-## 📄 License
-
-This project is licensed under the MIT License - see the LICENSE file for details.
-<<<<<<< HEAD
-=======
-
-## 🆘 Support
-
-For support, email support@trucklogix.com or join our community Discord server.
-
-## 🔮 Roadmap
-
-- **Mobile App**: Native iOS and Android applications
-- **Fleet Management**: Advanced fleet tracking and management features
-- **Predictive Maintenance**: AI-powered vehicle maintenance scheduling
-- **Integration Hub**: Connect with popular trucking software and hardware
-- **Advanced Analytics**: Detailed performance and efficiency reporting
 
 ---
-
-**TruckLogix** - Making trucking smarter, safer, and more efficient with AI. 🚛✨
->>>>>>> fee92bafa415776d9bf9b39f7a5c5cd243cf8677
